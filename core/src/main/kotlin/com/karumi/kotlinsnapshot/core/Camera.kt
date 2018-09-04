@@ -34,13 +34,14 @@ internal class Camera<in A>(
     private fun getFile(testCaseName: TestCaseName): File =
         if (testClassAsDirectory) {
             val testClassName = testCaseName.testClassName
-                ?: extractor.getTestStackElement()?.className
-            val parent = testClassName?.let {
-                val file = File(snapshotDir, it)
-                file.mkdirs()
-                file
-            } ?: snapshotDir
-            File(parent, "${testCaseName.methodName}.snap")
+                ?: extractor.getTestStackElement()?.className ?: ""
+            Paths.get(
+                snapshotDir.absolutePath,
+                testClassName,
+                "${testCaseName.methodName}.snap"
+            ).toFile().also {
+                it.parentFile.mkdirs()
+            }
         } else {
             File(snapshotDir, "$testCaseName.snap")
         }
