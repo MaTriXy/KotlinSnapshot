@@ -100,7 +100,7 @@ internal class Camera<in A>(
     private fun extractTestCaseName(): TestCaseName {
         val testCaseTrace = extractor.getTestStackElement()
         if (testCaseTrace != null) {
-            return TestCaseName(testCaseTrace.className, methodName = testCaseTrace.methodName)
+            return TestCaseName(testCaseTrace.className, testCaseTrace.methodName)
         } else {
             throw TestNameNotFoundException("Kotlin Snapshot library couldn't find the name " +
                 "of the test. Review if the test case file or the spec file contains the word " +
