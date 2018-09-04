@@ -57,6 +57,19 @@ $ cat __snapshot__/should\ fetch\ data\ from\ network.snap
 {"name":"gabriel","id":5}
 ```
 
+You can also configure `KotlinSnapshot` for group the snapshot files into a directory with the name of the test class:
+
+``` kotlin
+    val kotlinSnapshot = KotlinSnapshot(relativePath = "src/test/kotlin/com/my/package", testClassAsDirectory = true)
+``` 
+
+Instead of generate a test in the root of the `__snapshot__` folder, it will be created inside the test name directory. Then the written snapshot will be inside `NetworkTest`:
+
+```bash
+$ cat __snapshot__/NetworkTest/should\ fetch\ data\ from\ network.snap 
+{"name":"gabriel","id":5}
+``` 
+
 On subsequent runs, the value will be compared with the snapshot stored in the filesystem if they are not equal, your test will fail. To see the detailed error you may need to run your tests with `./gradlew test --info`. You should see something like this:
 
 ![Snapshot Error](./art/errorScreenshot.png)
