@@ -15,7 +15,6 @@ class TestClassNameAsDirectoryTest {
 
     @Test
     fun `should create test class name folder with the method name snap file`() {
-
         val json = """{"name":"gabriel","id":5}"""
         snapWithExtractorSupport.matchWithSnapshot(json)
     }

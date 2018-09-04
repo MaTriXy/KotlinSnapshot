@@ -21,7 +21,7 @@ internal class Camera<in A>(
 
     fun matchWithSnapshot(value: A, snapshotName: String? = null) {
         val snapshotTestCaseName = if (snapshotName != null)
-            TestCaseName(extractor.getTestStackElement()?.className, snapshotName)
+            TestCaseName(null, snapshotName)
         else
             extractTestCaseName()
         val snapshotFile = getFile(snapshotTestCaseName)
@@ -33,7 +33,9 @@ internal class Camera<in A>(
 
     private fun getFile(testCaseName: TestCaseName): File =
         if (testClassAsDirectory) {
-            val parent = testCaseName.testClassName?.let {
+            val testClassName = testCaseName.testClassName
+                ?: extractor.getTestStackElement()?.className
+            val parent = testClassName?.let {
                 val file = File(snapshotDir, it)
                 file.mkdirs()
                 file
