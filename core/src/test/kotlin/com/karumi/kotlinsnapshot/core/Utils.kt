@@ -7,12 +7,14 @@ internal object TestCaseExtractorNotSupported : TestCaseExtractor() {
     override fun getTestStackElement(): StackTraceElement? = null
 }
 
-fun getRootFile(): File = File("__snapshot__")
+object SnapshotFileReader {
+    fun getRootFile(): File = File("__snapshot__")
 
-fun getSnapshotFile(filename: String): File = File(getRootFile(), "$filename.snap")
+    fun getSnapshotFile(filename: String): File = File(getRootFile(), "$filename.snap")
 
-fun getSnapshotFile(parent: String, filename: String): File = Paths.get(
-    getRootFile().absolutePath,
-    parent,
-    "$filename.snap"
-).toFile()
+    fun getSnapshotFile(parent: String, filename: String): File = Paths.get(
+        getRootFile().absolutePath,
+        parent,
+        "$filename.snap"
+    ).toFile()
+}

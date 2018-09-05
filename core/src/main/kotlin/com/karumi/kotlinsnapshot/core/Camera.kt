@@ -33,7 +33,7 @@ internal class Camera<in A>(
 
     private fun getFile(testCaseName: TestCaseName): File =
         if (testClassAsDirectory) {
-            val testClassName = testCaseName.testClassName
+            val testClassName = testCaseName.className
                 ?: extractor.getTestStackElement()?.className ?: ""
             Paths.get(
                 snapshotDir.absolutePath,
@@ -109,9 +109,9 @@ internal class Camera<in A>(
         }
     }
 
-    private data class TestCaseName(val testClassName: String?, val methodName: String) {
-        override fun toString(): String = if (testClassName != null) {
-            "${testClassName}_$methodName"
+    private data class TestCaseName(val className: String?, val methodName: String) {
+        override fun toString(): String = if (className != null) {
+            "${className}_$methodName"
         } else {
             methodName
         }

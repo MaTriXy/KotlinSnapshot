@@ -1,5 +1,6 @@
 package com.karumi.kotlinsnapshot.core
 
+import com.karumi.kotlinsnapshot.core.SnapshotFileReader.getSnapshotFile
 import junit.framework.TestCase.assertTrue
 import org.junit.Test
 
