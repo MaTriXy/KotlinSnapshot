@@ -26,6 +26,8 @@ apply plugin: 'com.karumi.kotlin-snapshot'
 Invoke the extension function named ``matchWithSnapshot`` from any instance. The name of the snapshot is not mandatory, if you don't specify it as the first ``matchWithSnapshot`` param the library will infer it from the test execution context. Example:
 
 ``` kotlin
+package com.mypackage
+
 class NetworkTest {
 
     private val networkClient = MyNetworkClient()
@@ -57,16 +59,16 @@ $ cat __snapshot__/should\ fetch\ data\ from\ network.snap
 {"name":"gabriel","id":5}
 ```
 
-You can also configure `KotlinSnapshot` for group the snapshot files into a directory with the name of the test class:
+You can also configure `KotlinSnapshot` to group all snapshot files into a directory named after the test class:
 
 ``` kotlin
 val kotlinSnapshot = KotlinSnapshot(relativePath = "src/test/kotlin/com/my/package", testClassAsDirectory = true)
 ``` 
 
-Instead of generate a test in the root of the `__snapshot__` folder, it will be created inside the test name directory. Then the written snapshot will be inside `NetworkTest`:
+The snapshot will be generated inside a directory with the name of the test instead of putting it in `__snapshot__` folder. In the previous example, the test will be created inside `com.mypackage.NetworkTest`:
 
 ```bash
-$ cat __snapshot__/NetworkTest/should\ fetch\ data\ from\ network.snap 
+$ cat __snapshot__/my.package.NetworkTest/should\ fetch\ data\ from\ network.snap 
 {"name":"gabriel","id":5}
 ``` 
 
