@@ -60,7 +60,7 @@ $ cat __snapshot__/should\ fetch\ data\ from\ network.snap
 You can also configure `KotlinSnapshot` for group the snapshot files into a directory with the name of the test class:
 
 ``` kotlin
-    val kotlinSnapshot = KotlinSnapshot(relativePath = "src/test/kotlin/com/my/package", testClassAsDirectory = true)
+val kotlinSnapshot = KotlinSnapshot(relativePath = "src/test/kotlin/com/my/package", testClassAsDirectory = true)
 ``` 
 
 Instead of generate a test in the root of the `__snapshot__` folder, it will be created inside the test name directory. Then the written snapshot will be inside `NetworkTest`:
