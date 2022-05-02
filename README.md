@@ -1,4 +1,4 @@
-# ![Karumi logo](https://cloud.githubusercontent.com/assets/858090/11626547/e5a1dc66-9ce3-11e5-908d-537e07e82090.png) KotlinSnapshot [![Build Status](https://travis-ci.org/Karumi/KotlinSnapshot.svg?branch=master)](https://travis-ci.org/Karumi/KotlinSnapshot) 
+# ![Karumi logo](https://cloud.githubusercontent.com/assets/858090/11626547/e5a1dc66-9ce3-11e5-908d-537e07e82090.png) KotlinSnapshot [![Build Status](https://github.com/pedrovgs/KotlinSnapshot/actions/workflows/test.yml/badge.svg)](https://github.com/pedrovgs/KotlinSnapshot/actions/workflows/test.yml)
 
 Snapshot Testing framework for Kotlin.
 
